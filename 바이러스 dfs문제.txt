@@ -1,0 +1,68 @@
+package 코딩연습;
+
+import java.util.*;
+import java.util.Stack;
+public class ex {
+   
+	 static int N;
+	 static int cnt;
+	 static int array[][];
+	 static int visit[][];
+	 static int result[];
+	 static int count=0;
+	 
+	 static void dfs(int x)
+	 {
+		 result[x] = 1;
+		 System.out.println("x="+x);
+		 for(int i=1;i<=N;i++)
+		 {
+			 if(array[x][i]==1&&visit[x][i]!=1)
+			 {
+				
+				visit[x][i]=1;
+				visit[i][x]=1;
+				 dfs(i);
+			 }
+		 }
+	 }
+   
+
+	 public static void main(String[] args) {
+
+	        Scanner input = new Scanner(System.in);
+	        N=input.nextInt(); //7
+	        cnt=input.nextInt(); // 6
+	        array=new int[N+1][N+1];
+	        visit=new int[N+1][N+1];
+	        result = new int[N+1];
+	        for(int i=0;i<cnt;i++)
+	        {
+	        	int front =input.nextInt();
+	        	int end=input.nextInt();
+	        	array[front][end]=1;
+	        	array[end][front]=1;
+	        }
+	        // 입력 
+	        
+	        for(int i=1;i<=N;i++)
+	        {
+	        	if(array[1][i]==1)
+	        		{
+	        		dfs(i);
+	        		}
+	        }
+	        int set = 0;
+	        for(int i=1;i<=N;i++)
+	        	set += result[i];
+	        System.out.print(set-1);
+	        
+	        
+	        
+	        
+	       
+	 }
+
+
+       
+}
