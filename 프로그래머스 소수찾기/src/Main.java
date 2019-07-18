@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
 	
-	static boolean swapv=true;
+	static List<String> list =new ArrayList<>();
 
 	static boolean prime(int n)
 	{
@@ -18,40 +18,8 @@ public class Main {
 	 
 	}
 	
-	/*
-	 
-char[] c = originalString.toCharArray();
 
-// Replace with a "swap" function, if desired:
-char temp = c[0];
-c[0] = c[1];
-c[1] = temp;
 
-String swappedString = new String(c);
-	 */
-	
-	static String swap(String a, int scount)
-	{
-		char [] c =a.toCharArray();
-		if(c[scount]==c[scount+1])
-			{
-			swapv=false;
-			return a;
-			}
-		
-		
-		char temp =c[scount];
-		c[scount]=c[scount+1];
-		c[scount+1]=temp;
-		
-		String b = new String(c);
-		
-		System.out.println(b);
-		
-		swapv=true;
-		
-		return b;
-	}
 	
 	
 	public static void main(String[] args) {
@@ -62,64 +30,16 @@ String swappedString = new String(c);
 		
 		String numbers=input.next();
 		// ют╥б
- 		LinkedList<Integer>  list =new LinkedList<Integer>();
-		
-		
-		int answer=0;
-		int result=0;
-		int scount=0;
-		boolean v =true;
-		String temp=numbers;
-		
 
+		ArrayList<Integer> list = new ArrayList<>();
 		
 		
-		while(v)
-		{	
-			if(scount==numbers.length()-1)
-			{
-				scount=0;
-			}
-		for(int i=0;i<numbers.length();i++)
-			
-		{   
-			
-			
-			
-			for(int count=i+1;count<=numbers.length();count++)
-			{
-				if(count==i+1&&numbers.charAt(0)=='0')continue;
-					
-					result=Integer.parseInt(numbers.substring(i,count));
-				
-		if(list.contains(result))continue;
-								
-				
-			
-				if(prime(result))
-					{
-					list.add(result);
-					answer++;
-					}
-					
-				}
-			
+		for(int i=0;i<numbers.length()-1;i++)
+		{list.add(Integer.parseInt(Character.toString(numbers.charAt(i))));
+		}
 		
-			}
-		
-			numbers=swap(numbers,scount);
-			scount++;
-			
-			
-		
-			if(numbers.equals(temp)&&swapv==true) {
-				v=false;
-			}
-		
-	}
 		
 		System.out.print(list);
-		
 		
 	
 	}

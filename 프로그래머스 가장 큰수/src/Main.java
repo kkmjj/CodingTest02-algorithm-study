@@ -27,6 +27,7 @@ public class Main {
         for (String s : stringList) {
             answer += s;
         }
+        
 
 		answer=answer.charAt(0)=='0'?"0":answer;
 		
