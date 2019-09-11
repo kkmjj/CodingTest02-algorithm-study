@@ -3,14 +3,14 @@
 #include<vector>
 #include<algorithm>
 using namespace std;
-int n = 11;
+int n = 200;
 
 
 
 string dp[2] = { "4","13" };
 int cnt = 0;
 
-vector<int> answer;
+vector<long long> answer;
 
 void dfs(string a,int length)
 {
@@ -18,7 +18,7 @@ void dfs(string a,int length)
 
 	if (a.length() == length)
 	{
-		answer.push_back(atoi(a.c_str()));
+		answer.push_back(atoll(a.c_str()));
 		return;
 	}
 
